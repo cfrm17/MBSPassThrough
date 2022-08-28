@@ -19,17 +19,11 @@ We will denote these rates for a particular simulation number s at a particular 
 
 The volatility structure described above is determined by matching to market cap prices. In order to determine the volatility σ(t), some assumptions need to be made. DS assumes that the three month spot rates share the same volatility structure, and these rates are perfectly correlated. With this, we can price three month caps of a certain maturity and calibrate the volatilities σ(t) to match the market prices.  
 
-Specifically, we start with pricing 12 month caps and assuming the volatility σ(t) is constant for the first 12 months. For a particular volatility and drift assumption dc(t)1, we have a corresponding path for the three month spot rates rc(t, s), where this is actually a series of three month forward rates at t along a particular path s. Choosing a particular σ(t) necessitates a choice of d(t) in order to match current bond prices, as explained in the preceding paragraph. This determines “discount factor” paths D(T, s).
+Specifically, we start with pricing 12 month caps and assuming the volatility σ(t) is constant for the first 12 months. For a particular volatility and drift assumption dc(t)1, we have a corresponding path for the three month spot rates rc(t, s), where this is actually a series of three month forward rates at t along a particular path s. Choosing a particular σ(t) necessitates a choice of d(t) in order to match current bond prices (see https://finpricing.com/lib/FiBond.html), as explained in the preceding paragraph. This determines “discount factor” paths D(T, s).
 
 This is simply the value of a discounted cash flow at month t + 3 where the cash flow is specified by the three month rate at time t. This determines the drift dc(t), and then we calculate the price of a 12 month at-the-money cap and compare to the market. To value the cap, we use the full three month spot rate path and discount the appropriate cash flows using the discount factor paths D(T, s), and take the expectation over all Monte Carlo paths. 
 
-References:
 
-https://finpricing.com/lib/EqCliquet.html
-
-https://zenodo.org/record/6549222/files/MbsPassThrough.pdf
-
-https://zenodo.org/record/6549222#.YpDvoKgpDq4
 
 
 
